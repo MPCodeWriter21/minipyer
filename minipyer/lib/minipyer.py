@@ -7,7 +7,7 @@ from typing import Union as _Union, TextIO as _TextIO, List as _List, Callable a
 
 
 class Minipyer:
-    def __init__(self, code: _Union[str, bytes] = None, file: _Union[str, bytes, _os.PathLike, _TextIO] = None):
+    def __init__(self, *args, code: _Union[str, bytes] = None, file: _Union[str, bytes, _os.PathLike, _TextIO] = None):
         if code is None and file is None:
             raise ValueError("Either code or file must be provided")
         if code and file:

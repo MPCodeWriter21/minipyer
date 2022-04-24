@@ -8,6 +8,11 @@ from typing import Union as _Union, Optional as _Optional, Callable as _Callable
 
 from .minipyer import Minipyer as _Minipyer
 
+__all__ = ['CSSMinipyer', 'remove_comments', 'remove_unnecessary_whitespace', 'remove_unnecessary_semicolons',
+           'remove_empty_rules', 'normalize_rgb_colors_to_hex', 'rgb_to_hex', 'normalize_rgb_to_hex',
+           'condense_zero_units', 'condense_multidimensional_zeros', 'condense_floating_points',
+           'condense_hex_colors', 'condense_whitespace', 'condense_semicolons', 'wrap_css_lines']
+
 
 def remove_comments(css: _Union[bytes, str]) -> _Union[bytes, str]:
     """
@@ -25,7 +30,7 @@ def remove_comments(css: _Union[bytes, str]) -> _Union[bytes, str]:
     while b'/*' in css_:
         start = css_.find(b'/*', max(end, 0))
         end = css_.find(b'*/', start)
-        print(start, end, css_.find(b'/*'), css_.find(b'*/'))
+        # (start, end, css_.find(b'/*'), css_.find(b'*/'))
         if start < 0:
             break
         if end < 0:
@@ -345,17 +350,127 @@ def wrap_css_lines(css: _Union[bytes, str], line_length: int):
 
 
 class CSSMinipyer(_Minipyer):
-    remove_comments: _Callable = remove_comments
-    condense_whitespace: _Callable = condense_whitespace
-    remove_unnecessary_whitespace: _Callable = remove_unnecessary_whitespace
-    remove_unnecessary_semicolons: _Callable = remove_unnecessary_semicolons
-    condense_zero_units: _Callable = condense_zero_units
-    condense_multidimensional_zeros: _Callable = condense_multidimensional_zeros
-    condense_floating_points: _Callable = condense_floating_points
-    normalize_rgb_colors_to_hex: _Callable = normalize_rgb_colors_to_hex
-    condense_hex_colors: _Callable = condense_hex_colors
-    wrap_css_lines: _Callable = wrap_css_lines
-    condense_semicolons: _Callable = condense_semicolons
+    @staticmethod
+    def remove_comments(css: _Union[bytes, str]):
+        """
+        Remove comments from the given CSS.
+
+        :param css: The CSS code to remove comments.
+        :return: The CSS code with comments removed.
+        """
+
+        return remove_comments(css)
+
+    @staticmethod
+    def condense_whitespace(css: _Union[bytes, str]):
+        """
+        Condense multiple adjacent whitespace characters into one.
+
+        :param css: The CSS code to condense whitespaces.
+        :return: The CSS code with whitespaces condensed.
+        """
+
+        return condense_whitespace(css)
+
+    @staticmethod
+    def remove_unnecessary_whitespace(css: _Union[bytes, str]):
+        """
+        Remove unnecessary whitespace characters from the given CSS.
+
+        :param css: The CSS code to remove unnecessary whitespaces.
+        :return: The CSS code with unnecessary whitespaces removed.
+        """
+
+        return remove_unnecessary_whitespace(css)
+
+    @staticmethod
+    def remove_unnecessary_semicolons(css: _Union[bytes, str]):
+        """
+        Remove unnecessary semicolon characters from the given CSS.
+
+        :param css: The CSS code to remove unnecessary semicolons.
+        :return: The CSS code with unnecessary semicolons removed.
+        """
+
+        return remove_unnecessary_semicolons(css)
+
+    @staticmethod
+    def condense_zero_units(css: _Union[bytes, str]):
+        """
+        Condense zero units from the given CSS.
+
+        :param css: The CSS code to condense zero units.
+        :return: The CSS code with zero units condensed.
+        """
+
+        return condense_zero_units(css)
+
+    @staticmethod
+    def condense_multidimensional_zeros(css: _Union[bytes, str]):
+        """
+        Condense multidimensional zeros from the given CSS.
+
+        :param css: The CSS code to condense multidimensional zeros.
+        :return: The CSS code with multidimensional zeros condensed.
+        """
+
+        return condense_multidimensional_zeros(css)
+
+    @staticmethod
+    def condense_floating_points(css: _Union[bytes, str]):
+        """
+        Condense floating points from the given CSS.
+
+        :param css: The CSS code to condense floating points.
+        :return: The CSS code with floating points condensed.
+        """
+
+        return condense_floating_points(css)
+
+    @staticmethod
+    def normalize_rgb_colors_to_hex(css: _Union[bytes, str]):
+        """
+        Normalize RGB colors to hex colors.
+
+        :param css: The CSS code to normalize RGB colors to hex colors.
+        :return: The CSS code with RGB colors normalized to hex colors.
+        """
+
+        return normalize_rgb_colors_to_hex(css)
+
+    @staticmethod
+    def condense_hex_colors(css: _Union[bytes, str]):
+        """
+        Condense hex colors from the given CSS.
+
+        :param css: The CSS code to condense hex colors.
+        :return: The CSS code with hex colors condensed.
+        """
+
+        return condense_hex_colors(css)
+
+    @staticmethod
+    def wrap_css_lines(css: _Union[bytes, str], line_length: int = 80):
+        """
+        Wrap the given CSS code to the given line length.
+
+        :param css: The CSS code to wrap.
+        :param line_length: The maximum line length.
+        :return: The CSS code with lines wrapped.
+        """
+
+        return wrap_css_lines(css, line_length)
+
+    @staticmethod
+    def condense_semicolons(css: _Union[bytes, str]):
+        """
+        Condense semicolons from the given CSS.
+
+        :param css: The CSS code to condense semicolons.
+        :return: The CSS code with semicolons condensed.
+        """
+
+        return condense_semicolons(css)
 
     @staticmethod
     def do_pseudoclassbmh(css: _Union[bytes, str]):

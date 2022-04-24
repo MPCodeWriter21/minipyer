@@ -9,7 +9,7 @@ If you enjoyed my work, consider supporting me by donating a small amount of cry
 
 **TONCOIN**                   : EQBYkP4Mwb3R82c_hCRUfOBXuihJ_o6KPsshE4v6sXvxfTz2
 
-**NANO**                      : nano_1xyd5i88ufyf6dd8yakb57o11bjgix3p9tt9b1b9k8u881z3bs9rnuyagr4q
+**Nano**                      : nano_1xyd5i88ufyf6dd8yakb57o11bjgix3p9tt9b1b9k8u881z3bs9rnuyagr4q
 
 **Dogecoin** (DOGE)           : D8AksQi5c5nDGH3RtWhJHLriE5mrnFEQCn
 
